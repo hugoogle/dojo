@@ -34,7 +34,6 @@ public class login {
     public void loginInvalido() {
 
         open("https://seubarriga.wcaquino.me/login");
-
         // Mapeando elemento com cssSelector
         // Atributo ID incluimos na frente do nome o caracter #
         // Atributo CLASS incluimos na frente do nome o caracter .
@@ -54,13 +53,14 @@ public class login {
 
         SelenideElement inputEmail = $("#email");
         SelenideElement inputSenha = $("#senha");
-        SelenideElement btnEntrar = $(".btn-primary");
+        SelenideElement btnEntrar  = $(".btn-primary");
+        SelenideElement mensagem   = $(".alert-success");
 
         inputEmail.setValue("hugo.ferreira@bluesoft.com.br");
         inputSenha.setValue("8437");
         btnEntrar.click();
 
-        Assertions.assertEquals("Bem vindo", $(".alert-success").getText());
+        Assertions.assertEquals("Bem vindo, hugo!", mensagem.getText());
 
 
     }
